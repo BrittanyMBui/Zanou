@@ -1,5 +1,6 @@
 const express = require('express');
 const ejs = require('ejs');
+require('./models/index');
 const PORT = process.env.PORT || 4000;
 const app = express();
 
