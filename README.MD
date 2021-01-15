@@ -16,3 +16,6 @@ User is redirected to their profile page with new entry submission pinned to the
 If user selects existing entry, they are redirected to the show page for that entry and will have an “edit entry” button at the bottom
 If user selects “edit entry” they will be redirected to the edit page, which will contain existing entry data but in a text area that can be edited
 Once existing entry is edited, they will select “update entry” button and be redirected to their profile page
+
+*WIREFRAMES*
+![wireframe](https://imgur.com/nVGjg2D)
