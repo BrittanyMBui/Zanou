@@ -11,8 +11,9 @@ app.use((req, res, next)=>{
     next();
 });
 
+// HOMEPAGE
 app.get('/', (req, res)=>{
-    res.send('home route');
+    res.render('homepage');
 });
 
 
