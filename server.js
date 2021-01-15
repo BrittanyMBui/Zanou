@@ -2,7 +2,8 @@ const express = require('express');
 const ejs = require('ejs');
 require('./models/index');
 const bodyParser = require('body-parser');
-const methodOverride = require('method-override';)
+const methodOverride = require('method-override');
+
 const PORT = process.env.PORT || 4000;
 const app = express();
 
