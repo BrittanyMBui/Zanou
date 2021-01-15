@@ -18,4 +18,4 @@ If user selects “edit entry” they will be redirected to the edit page, which
 Once existing entry is edited, they will select “update entry” button and be redirected to their profile page
 
 *WIREFRAMES*
-![wireframe](https://imgur.com/nVGjg2D)
+![wireframe](https://i.imgur.com/nVGjg2D.png)
