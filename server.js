@@ -3,6 +3,7 @@ const ejs = require('ejs');
 require('./models/index');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const usersController = require('./controllers/usersController');
 
 const PORT = process.env.PORT || 4000;
 const app = express();
@@ -17,6 +18,8 @@ app.use((req, res, next)=>{
 app.use(bodyParser.urlencoded({ extended: false }));
 // METHOD-OVERRIDE
 app.use(methodOverride('_method'));
+// CONTROLLERS
+app.use('/users', usersController);
 // STATIC ASSETS
 app.use(express.static(`${__dirname}/public`));
 
