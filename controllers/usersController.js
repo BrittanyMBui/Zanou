@@ -1,5 +1,5 @@
 const express = require('express');
-const { User } = require('../models');
+const { User, Entry } = require('../models');
 const router = express.Router();
 
 
@@ -24,6 +24,24 @@ router.post('/', (req, res)=>{
     });
 });
 
+// Log in with email and password
+router.post('/login', (req, res)=>{
+    const userEmail = req.body.email;
+    User.findOne({email: userEmail}, (err, foundUser)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+            return res.send('Page seems to be broken..');
+        }
+        if (!foundUser) {
+            res.render('users/loginUser');
+        }
+        if(foundUser.password === req.body.password) {
+            return res.redirect(`/users/${foundUser._id}`);
+        }
+
+        res.render('users/loginUser');
+    });
+});
 
 // User Profile after login
 router.get('/:id', (req, res)=>{
@@ -35,6 +53,38 @@ router.get('/:id', (req, res)=>{
         }
         res.render('users/profileUser', {
             user: foundUser,
+        });
+    });
+});
+
+// Add New Entry Page
+router.get('/:id/entries/new', (req, res)=>{
+    res.render('entries/newEntry', {
+        userId: req.params.id,
+    });
+});
+
+// Post New Entry
+router.post('/:userId/entries', (req, res)=>{
+    Entry.create(req.body, (err, newEntry)=>{
+        if (err) {
+            console.log(err);
+            return res.send('Page seems to be broken..');
+        }
+
+        User.findById(req.params.userId, (err, foundUser)=>{
+            if (err) {
+                console.log(err);
+            }
+            
+            foundUser.entries.push(newEntry);
+
+            foundUser.save((err, savedUser)=>{
+                if (err) {
+                    console.log(err);
+                }
+                res.redirect(`/users/${savedUser._id}`);
+            });
         });
     });
 });

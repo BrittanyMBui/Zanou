@@ -7,5 +7,14 @@
 </head>
 <body>
     <h1>Welcome back, <%= user.username %></h1>
+    <h2>Entries</h2>
+    <ul>
+            <% user.entries.forEach((entry)=>{ %>
+                <li>
+                    <a href="#"><%= entry.title %></a>
+                </li>
+            <% }) %>
+    </ul>
+    <a href="/users/<%= user._id %>/entries/new">Add a New Entry</a>
 </body>
 </html>
