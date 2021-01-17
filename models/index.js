@@ -22,4 +22,5 @@ mongoose.connection.on('error', (err)=>{
 
 module.exports = {
     User: require('./User'),
+    Entry: require('./Entry'),
 };
