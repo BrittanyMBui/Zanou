@@ -8,6 +8,11 @@ router.get('/new', (req, res)=>{
     res.render('users/newUser');
 });
 
+// Log into an account
+router.get('/login', (req, res)=>{
+    res.render('users/loginUser');
+});
+
 // Post new Account
 router.post('/', (req, res)=>{
     User.create(req.body, (err, newUser)=>{
@@ -19,10 +24,6 @@ router.post('/', (req, res)=>{
     });
 });
 
-// Log into an account
-router.get('/login', (req, res)=>{
-    res.render('users/loginUser');
-});
 
 // User Profile after login
 router.get('/:id', (req, res)=>{
