@@ -7,5 +7,18 @@
 </head>
 <body>
     <h1>Login Page</h1>
+
+    <form action="/users/login" method="POST">
+        <div class="email">
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="password">
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Log into Journal</button>
+    </form>
+
 </body>
 </html>
