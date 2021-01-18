@@ -89,4 +89,26 @@ router.post('/:userId/entries', (req, res)=>{
     });
 });
 
+// View One Entry
+router.get('/:userId/entries/:id', (req, res)=>{
+    const entryId = req.params.id;
+    Entry.findById(entryId, (err, foundEntry)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+            return res.send('Page seems to be broken..');
+        }
+
+        User.findById(req.params.userId, (err, foundUser)=>{
+            if (err) {
+                console.log(err);
+            }
+
+            res.render('entries/showEntry', {
+                entry: foundEntry,
+            },
+            );
+        });
+    });
+});
+
 module.exports = router;

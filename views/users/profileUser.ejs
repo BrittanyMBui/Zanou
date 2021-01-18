@@ -11,7 +11,7 @@
     <ul>
             <% user.entries.forEach((entry)=>{ %>
                 <li>
-                    <a href="#"><%= entry.title %></a>
+                    <a href="/users/<%= user._id %>/entries/<%= entry._id %>"><%= entry.title %></a>
                 </li>
             <% }) %>
     </ul>
