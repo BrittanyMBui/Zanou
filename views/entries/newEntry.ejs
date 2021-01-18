@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Create a New Journal Entry</h1>
+    <form action="/users/<%= userId %>/entries" method="POST">
+    <input type="text" name="title" value="<%= new Date %>">
+    <br />
+    <textarea name="body"></textarea>
+    <br />
+    <input type="submit" value="Submit Journal Entry">
+    </form>
 </body>
 </html>
