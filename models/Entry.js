@@ -7,6 +7,10 @@ const entrySchema = mongoose.Schema({
     body: {
         type: String,
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
 }, {timestamps: true});
 
 const Entry = mongoose.model('Entry', entrySchema);
