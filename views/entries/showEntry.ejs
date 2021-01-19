@@ -6,6 +6,7 @@
     <title>View an Entry</title>
 </head>
 <body>
+    <%- include ('../partials/header') %>
     <h2><%= entry.title %></h2>
     <p><%= entry.body %></p>
     <section class="edit">
@@ -17,5 +18,7 @@
             <input type="submit" value="Delete Entry">
         </form>
     </section>
+    <br />
+    <a href="/users/<%= entry.user._id %>">Back</a>
 </body>
 </html>

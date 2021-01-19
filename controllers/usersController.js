@@ -175,5 +175,16 @@ router.delete('/:userId/entries/:entryId', (req, res)=>{
     });
 });
 
+// Log Out
+router.get('/:userId/logout', (req, res)=>{
+    const userId = req.params.userId;
+    User.findById(userId, (err, logoutUser)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+            return res.send('Page seems to be broken..');
+        }
+        res.redirect('/');
+    });
+});
 
 module.exports = router;

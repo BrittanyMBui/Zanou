@@ -6,6 +6,8 @@
     <title>Profile Page</title>
 </head>
 <body>
+    <%- include ('../partials/header') %>
+
     <h1>Welcome back, <%= user.username %></h1>
     <h2>Entries</h2>
     <ul>
@@ -16,5 +18,7 @@
             <% }) %>
     </ul>
     <a href="/users/<%= user._id %>/entries/new">Add a New Entry</a>
+    <br />
+    <a href="/users/<%= user._id %>/logout">Log Out</a>
 </body>
 </html>
