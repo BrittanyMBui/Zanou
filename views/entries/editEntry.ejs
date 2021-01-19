@@ -6,6 +6,12 @@
     <title>Edit Journal Entry</title>
 </head>
 <body>
-    <h1>Edit Journal Entry</h1>
+    <h4>Edit Entry for <%= entry.title %></h4>
+    <form action="/users/<%= entry.user._id %>/entries/<%= entry._id %>?_method=PUT" method="post">
+        <textarea name="body"><%= entry.body %></textarea>
+        <br />
+        <input type="submit" value="Update Entry">
+    </form>
+
 </body>
 </html>
