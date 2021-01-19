@@ -1,6 +1,40 @@
 .container {
+    
+    background-color: rgb(142, 133, 190);
+}
+
+.cover {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.coverText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(93, 87, 119);
+}
+
+.coverText > h1 {
+    color: rgb(93, 87, 119);
+    font-size: 30px;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 10px;
+}
+
+.card {
+    background-color: rgb(162, 130, 168);
+    margin: 50px;
+}
+
+.card > img {
+    max-width: 100%;
+    height: auto;
 }
