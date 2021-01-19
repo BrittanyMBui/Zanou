@@ -7,8 +7,18 @@ header,
 
 #home-bg {
     background: url("https://i.ytimg.com/vi/k_mwT84s_is/maxresdefault.jpg");
-    -webkit-bavkground-size: cover;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    filter: brightness(100%);
+}
+
+#home-bg:hover {
+    filter: brightness(60%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
 }
