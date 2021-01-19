@@ -8,11 +8,13 @@
 <body>
     <h1>Create a New Journal Entry</h1>
     <form action="/users/<%= userId %>/entries" method="POST">
-    <input type="text" name="title" value="<%= new Date %>">
-    <br />
-    <textarea name="body"></textarea>
-    <br />
-    <input type="submit" value="Submit Journal Entry">
+        <label for="title">Entry Date/Title</label>
+        <input type="text" name="title" value="<%= new Date %>">
+        <br />
+        <label for="body">Entry Content</label>
+        <textarea name="body"></textarea>
+        <br />
+        <input type="submit" value="Submit Journal Entry">
     </form>
 </body>
 </html>
