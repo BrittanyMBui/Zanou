@@ -66,17 +66,21 @@ router.get('/:id/entries/new', (req, res)=>{
 
 // Post New Entry
 router.post('/:userId/entries', (req, res)=>{
-    Entry.create(req.body, (err, newEntry)=>{
+    User.findById(req.params.userId, (err, foundUser)=>{
         if (err) {
-            console.log(err);
+            console.log(`Error: ${err}`);
             return res.send('Page seems to be broken..');
         }
-
-        User.findById(req.params.userId, (err, foundUser)=>{
+        const context = {
+            title: req.body.title,
+            body: req.body.body,
+            user: foundUser._id,
+        };
+        Entry.create(context, (err, newEntry)=>{
             if (err) {
                 console.log(err);
+                return res.send('Page seems to be broken..');
             }
-            
             foundUser.entries.push(newEntry);
 
             foundUser.save((err, savedUser)=>{
@@ -92,9 +96,7 @@ router.post('/:userId/entries', (req, res)=>{
 // View One Entry
 router.get('/:userId/entries/:id', (req, res)=>{
     const entryId = req.params.id;
-    Entry.findById(entryId)
-    .populate('user')
-    .exec((err, foundEntry)=>{
+    Entry.findById(entryId, (err, foundEntry)=>{
         if (err) {
             console.log(`Error: ${err}`);
             return res.send('Page seems to be broken..');
@@ -112,24 +114,42 @@ router.get('/:userId/entries/:id', (req, res)=>{
 });
 
 // Edit Entry
-// router.get('/:userId/entries/:id/edit', (req, res)=>{
-//     const entryId = req.params.id;
-//     Entry.findById(entryId, (err, foundEntry)=>{
-//         if (err) {
-//             console.log(`Error: ${err}`);
-//             return res.send('Page seems to be broken..');
-//         }
+router.get('/:userId/entries/:entryId/edit', (req, res)=>{
+    Entry.findById(req.params.entryId, (err, foundEntry)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+            return res.send('Page seems to be broken..');
+        }
 
-//         User.findById(req.params.userId, (err, foundUser)=>{
-//             if (err) {
-//                 console.log(`Error: ${err}`);
-//             }
+        User.findById(req.params.userId, (err, foundUser)=>{
+            if (err) {
+                console.log(`Error: ${err}`);
+            }
 
-//             res.render('entries/editEntry', {
-//                 entry: foundEntry,
-//             });
-//         });
-//     });
-// });
+            res.render('entries/editEntry', {
+                entry: foundEntry,
+            });
+        });
+    });
+});
+
+// Post Edit
+router.put('/:userId/entries/:entryId', (req, res)=>{
+    const entryId = req.params.entryId;
+    Entry.findByIdAndUpdate(entryId, req.body, (err, updatedEntry)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+            return res.send('Page seems to be broken..');
+        }
+        const userId = req.params.userId;
+        User.findById(userId, (err, foundUser)=>{
+            if (err) {
+                console.log(`Error: ${err}`);
+            }
+
+            res.redirect(`/users/${userId}`);
+        });
+    });
+});
 
 module.exports = router;
