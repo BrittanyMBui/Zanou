@@ -12,43 +12,55 @@
 
     <!-- Navigation Bar -->
 
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+        <div class="container">
+
+            <!-- Brand Name -->
+            <a class="navbar-brand" href="/">Journal App <i class="bi bi-flower2"></i></a>
             
-        <a class="navbar-brand" href="/">Journal App
-            <i class="bi bi-flower2"></i>
-            
-        </a> 
-        <a class="navbar-brand" href="/users/login">Login</a> 
-            <!-- <div class="navbar-nav">
-            <a class="nav-link" href="/users/new">Get Started</a>
-            <a class="nav-link" href="/users/login" >Login</a>
-            </div> -->
-        </div>
-    </nav>
+            <!-- Collapse Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- Cover Image for the app -->
+            <!-- Content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
 
-    <div class="container">
-        <img class="cover" src="">
-        <div class="coverText">
-            <h1>Welcome</h1>
-        </div>
-    </div>
+                <!-- Links to Create Account and Login -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/new">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users/login"> <i class="bi bi-person-fill"></i> Login</a>
+                    </li>
 
-    <!-- Grid -->
+                <!-- Dropdown -->   
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Menu</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/">Contact</a>
+                    <a class="dropdown-item" href="#">Support</a>
+                    <a class="dropdown-item" href="#"></a>
+                    </div>
+                </li>
 
-    <div class="journal grid-wrapper">
-        <div class="card">
-            <img src="https://whyy.org/wp-content/uploads/2018/01/bigstock-Take-care-of-yourself-reminder-191450749-1.jpg" alt="">
-            <div class="text">
-                <h2>Start your journal</h2>
-                <p>Focus on self-care</p>
-                <button type="submit">Get Started</button>
+                </ul>
+
+                <!-- Search -->
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    </div>
+                </form>
+                </div>
+
             </div>
-        </div>
-
-    </div>
+    
+    </nav>
 
 
 
