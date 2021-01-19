@@ -152,4 +152,28 @@ router.put('/:userId/entries/:entryId', (req, res)=>{
     });
 });
 
+// Delete an Entry
+router.delete('/:userId/entries/:entryId', (req, res)=>{
+    const entryId = req.params.entryId;
+    Entry.findByIdAndDelete(entryId, (err, deletedEntry)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+            return res.send('Page seems to be broken..');
+        }
+        const userId = req.params.userId;
+        User.findByIdAndUpdate(
+            deletedEntry.user,
+            { $pull: {entries: deletedEntry._id} },
+            { new: true },
+            (err, updatedUser)=>{
+                if (err) {
+                    console.log(err);
+                }
+                res.redirect(`/users/${userId}`);
+            }
+        )
+    });
+});
+
+
 module.exports = router;
