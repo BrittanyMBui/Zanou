@@ -5,17 +5,17 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 
 
-// Create an Account
+// Render Create an Account Page
 router.get('/new', (req, res)=>{
     res.render('users/newUser');
 });
 
-// Log into an account
+// Render Log Into Account Page
 router.get('/login', (req, res)=>{
     res.render('users/loginUser');
 });
 
-// Post new Account
+// Create New Account
 router.post('/',
 body('email').isEmail(),
 body('confirmPassword').custom((value, { req })=>{
@@ -31,13 +31,29 @@ body('confirmPassword').custom((value, { req })=>{
         return res.send(errors)
     }
 
-    User.create(req.body, (err, newUser)=>{
+    bcrypt.genSalt(10, (err, salt)=>{
         if (err) {
-            console.log(`Error: ${err}`);
-            res.send('This page seems to be broken..');
+            return console.log(err)
         }
-        res.redirect('/users/login');
-    });
+
+        bcrypt.hash(req.body.password, salt, (err, hashedPassword)=>{
+            const newUser = {
+                username: req.body.username,
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPassword,
+            }
+
+            User.create(newUser, (err, createdUser)=>{
+                if (err) {
+                    console.log(`Error: ${err}`);
+                    res.send('This page seems to be broken..');
+                }
+                
+                res.redirect('/users/login');
+            })
+        })
+    })
 });
 
 // Log in with email and password
