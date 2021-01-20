@@ -55,12 +55,12 @@ body,
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.35s;
+    transition: opacity 1s;
 }
 
 .image_overlay > * {
     transform: translateY(20px);
-    transition: transform 0.35s;
+    transition: transform 1s;
 }
 
 .image_overlay:hover {
