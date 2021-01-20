@@ -3,7 +3,7 @@ const ejs = require('ejs');
 require('./models/index');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const { check, validationResult } = require('express-validator/check');
+const session = require('express-session');
 const usersController = require('./controllers/usersController');
 
 const PORT = process.env.PORT || 4000;
@@ -31,6 +31,15 @@ function ignoreFavicon(req, res, next) {
     next();
   };
 app.use(ignoreFavicon);
+// SESSION
+app.use(session({
+  secret: 'milo the barking dog',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 * 4
+  }
+}));
 
 // HOMEPAGE
 app.get('/', (req, res)=>{
