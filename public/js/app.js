@@ -1,7 +1,12 @@
-const pageTurn = new Audio('/assets/pageturn.mp3');
+const pageTurn = new Audio('/assets/pageturn.wav');
 
-const button = document.querySelector('button');
-
-button.addEventListener('click', function() {
+function playSound() {
     pageTurn.play();
-})
+};
+
+const entryBtn = document.getElementById("entry-button");
+
+entryBtn.addEventListener("click", (event)=>{
+    playSound();
+    event.preventDefault();
+});

@@ -22,6 +22,13 @@ app.use(methodOverride('_method'));
 app.use('/users', usersController);
 // STATIC ASSETS
 app.use(express.static(`${__dirname}/public`));
+function ignoreFavicon(req, res, next) {
+    if (req.originalUrl.includes('favicon.ico')) {
+      res.status(204).end()
+    }
+    next();
+  };
+app.use(ignoreFavicon);
 
 // HOMEPAGE
 app.get('/', (req, res)=>{
