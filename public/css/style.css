@@ -1,6 +1,5 @@
 html,
 body,
-header,
 #home-bg {
     height: 100%;
 }
@@ -22,3 +21,9 @@ header,
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
+
+
+
+
+
+
