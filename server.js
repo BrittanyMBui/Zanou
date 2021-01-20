@@ -3,6 +3,7 @@ const ejs = require('ejs');
 require('./models/index');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const { check, validationResult } = require('express-validator/check');
 const usersController = require('./controllers/usersController');
 
 const PORT = process.env.PORT || 4000;
@@ -22,6 +23,7 @@ app.use(methodOverride('_method'));
 app.use('/users', usersController);
 // STATIC ASSETS
 app.use(express.static(`${__dirname}/public`));
+// REMOVES 404 ERROR FAVICON
 function ignoreFavicon(req, res, next) {
     if (req.originalUrl.includes('favicon.ico')) {
       res.status(204).end()

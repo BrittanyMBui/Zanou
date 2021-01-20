@@ -1,5 +1,6 @@
 const express = require('express');
 const { User, Entry } = require('../models');
+const { body, validationResult } = require('express-validator');
 const router = express.Router();
 
 
@@ -14,7 +15,21 @@ router.get('/login', (req, res)=>{
 });
 
 // Post new Account
-router.post('/', (req, res)=>{
+router.post('/',
+body('email').isEmail(),
+body('confirmPassword').custom((value, { req })=>{
+    if (value !== req.body.password) {
+        throw new Error('Passwords do not match');
+    }
+    return true;
+}),
+(req, res)=>{
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        // return res.status(400).json({ errors: errors.array() });
+        return res.send(errors)
+    }
+
     User.create(req.body, (err, newUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
