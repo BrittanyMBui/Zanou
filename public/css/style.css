@@ -5,52 +5,6 @@ height: 100vh;
 width: 100vw;
 }
 
-/* #home-bg {
-    background: url("https://i.ytimg.com/vi/k_mwT84s_is/maxresdefault.jpg");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    filter: brightness(100%);
-}
-
-#home-bg:hover {
-    filter: brightness(60%);
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-} */ 
-
-/* body, html {
-    height: 100%;
-    width: 100%;
-} */
-
-
-.navbar-custom { 
-    background: linear-gradient(rgb(155, 115, 145), rgb(75, 95, 138));
-}
-
-.navbar-custom .navbar-brand, 
-        .navbar-custom .navbar-text { 
-            color: rgb(211, 199, 219); 
-        } 
-
-/* html,
-body,
-.image_img {
-    height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; 
-    background-size: 100% 100%;
-} */
-
-
-
 
 
 .home-bg {
@@ -115,6 +69,22 @@ body,
     margin-top: 0.25em;
 }
 
+.login {
+    background-color: rgb(151, 98, 140);
+}
 
 
+.login-view {
+    background-color: thistle;
+}
 
+#app-container {
+    position: relative;
+    padding-top: 200px;
+    min-height: 100vh;
+    
+}
+
+div {
+    display: block;
+}
