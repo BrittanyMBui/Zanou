@@ -1,4 +1,8 @@
-*PROJECT ONE USER STORY*
+PROJECT ONE:
+
+Zanou: A soothing self-care journal journey.
+
+USER STORIES:
 
 User navigates to homepage of site
 If user is new, user will select “create a new account”
