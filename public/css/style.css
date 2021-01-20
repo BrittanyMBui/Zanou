@@ -88,3 +88,7 @@ width: 100vw;
 div {
     display: block;
 }
+
+#user-login {
+    background-image: url("https://cdn.dribbble.com/users/417348/screenshots/2752682/beta-fish.jpg?compress=1&resize=800x600");
+}
