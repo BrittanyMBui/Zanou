@@ -1,10 +1,11 @@
-/* html,
-body,
-#home-bg {
-    height: 100%;
+html,
+body
+{
+height: 100vh;
+width: 100vw;
 }
 
-#home-bg {
+/* #home-bg {
     background: url("https://i.ytimg.com/vi/k_mwT84s_is/maxresdefault.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -20,7 +21,7 @@ body,
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
-} */
+} */ 
 
 /* body, html {
     height: 100%;
@@ -28,21 +29,54 @@ body,
 } */
 
 
-.image {
-    position: relative;
-    /* width: 100%; */ 
+.navbar-custom { 
+    background: linear-gradient(rgb(155, 115, 145), rgb(75, 95, 138));
+}
+
+.navbar-custom .navbar-brand, 
+        .navbar-custom .navbar-text { 
+            color: rgb(211, 199, 219); 
+        } 
+
+/* html,
+body,
+.image_img {
+    height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; 
+    background-size: 100% 100%;
+} */
+
+
+
+
+
+.home-bg {
+    background: url("https://i.ytimg.com/vi/k_mwT84s_is/maxresdefault.jpg");
+    position: relative;
+    width: 100vw; 
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    /* background-size: 100% 100%; */
 }
 
 .image_img {
     /* display: block; */
-    width: 100%;    
+    width: 100%;
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; */
+    object-fit: cover; 
+    /* background-size: 100% 100%; */
+    /* background: no-repeat center center fixed; */
 }
 
-.image_overlay {
+.home-bg-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -58,25 +92,25 @@ body,
     transition: opacity 0.90s;
 }
 
-.image_overlay > * {
+.home-bg-overlay > * {
     transform: translateY(20px);
     transition: transform 0.90s;
 }
 
-.image_overlay:hover {
+.home-bg-overlay:hover {
     opacity: 1;
 }
 
-.image_overlay:hover > * {
+.home-bg-overlay:hover > * {
     transform: translateY(0);
 }
 
-.image_title {
+.home-bg-title {
     font-size: 2em;
     font-weight: bold;  
 }
 
-.image_description {
+.home-bg-description {
     font-size: 1.25em;
     margin-top: 0.25em;
 }
