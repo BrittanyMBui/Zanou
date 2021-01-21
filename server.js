@@ -32,13 +32,13 @@ app.use('/users', usersController);
 // STATIC ASSETS
 app.use(express.static(`${__dirname}/public`));
 // REMOVES 404 ERROR FAVICON
-// function ignoreFavicon(req, res, next) {
-//     if (req.originalUrl.includes('favicon.ico')) {
-//       res.status(204).end()
-//     }
-//     next();
-//   };
-// app.use(ignoreFavicon);
+function ignoreFavicon(req, res, next) {
+    if (req.originalUrl.includes('favicon.ico')) {
+      res.status(204).end()
+    }
+    next();
+  };
+app.use(ignoreFavicon);
 // SESSION
 
 

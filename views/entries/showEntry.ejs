@@ -8,7 +8,7 @@
 <body>
     <%- include ('../partials/header') %>
     <h2><%= entry.title %></h2>
-    <p><%= entry.body %></p>
+    <p><%- entry.body %></p>
     <section class="edit">
         <a href="/users/profile/entries/<%= entry._id %>/edit"><button>Edit Entry</button></a>
     </section>

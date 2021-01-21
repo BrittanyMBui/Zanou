@@ -1,11 +1,13 @@
-const pageTurn = new Audio('/assets/pageturn.wav');
+// const pageTurn = new Audio('/assets/pageturn.wav');
 
-function playSound() {
-    pageTurn.play();
-};
+// function playSound() {
+//     pageTurn.play();
+// };
 
-const entryBtn = document.querySelectorAll('#entry-button');
+// const entryBtn = document.querySelectorAll('#entry-button');
 
-entryBtn.addEventListener('click', ()=>{
-    playSound()
-});
+// entryBtn.forEach(item => {
+//     item.addEventListener('click', event => {
+//     playSound()
+//     });
+// });
