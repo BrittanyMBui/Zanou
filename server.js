@@ -44,6 +44,9 @@ app.use(express.static(`${__dirname}/public`));
 
 // HOMEPAGE
 app.get('/', (req, res)=>{
+  if (req.session.user) {
+    res.redirect('/users/profile');
+  }
     res.render('homepage');
 });
 
