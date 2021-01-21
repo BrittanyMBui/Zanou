@@ -17,17 +17,16 @@ router.get('/login', (req, res)=>{
 
 // Create New Account
 router.post('/',
-body('email').isEmail(),
+body('email').isEmail().withMessage('Not a valid email'),
 body('confirmPassword').custom((value, { req })=>{
     if (value !== req.body.password) {
-        throw new Error('Passwords do not match');
+        throw new Error('Password does not match');
     }
     return true;
 }),
 (req, res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        // return res.status(400).json({ errors: errors.array() });
         return res.send(errors)
     }
 
