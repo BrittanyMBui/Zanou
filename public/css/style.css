@@ -146,15 +146,14 @@ width: 100vw;
     background-repeat: no-repeat;
     /* background-position: center; */
     /* background-position: 50% 50%; */
-    background-position: bottom;
     background-color: thistle;
-    
-    
+    background-position: center;
+    background-size: 600px 650px;
 }
 
 .profile-header {
     position: relative;
-    padding-top: 100px;
+    padding-top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,4 +193,6 @@ width: 100vw;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     font-size: 22px;
+    padding-left: 25px;
 }
+
