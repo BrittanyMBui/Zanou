@@ -49,7 +49,7 @@ body('confirmPassword').custom((value, { req })=>{
                     console.log(`Error: ${err}`);
                     res.send('This page seems to be broken..');
                 }
-                
+
                 res.redirect('/users/login');
             })
         })
@@ -58,31 +58,42 @@ body('confirmPassword').custom((value, { req })=>{
 
 // Log in with email and password
 router.post('/login', (req, res)=>{
-    const userEmail = req.body.email;
-    User.findOne({email: userEmail}, (err, foundUser)=>{
+
+    User.findOne({ email: req.body.email }, (err, foundUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
-            return res.send('Page seems to be broken..');
         }
         if (!foundUser) {
-            res.render('users/loginUser');
-        }
-        if(foundUser.password === req.body.password) {
-            return res.redirect(`/users/${foundUser._id}`);
+            return res.redirect('/users/login');
         }
 
-        res.render('users/loginUser');
+        bcrypt.compare(req.body.password, foundUser.password, (err, result)=>{
+            if (err) {
+                console.log(`Error: ${err}`);
+            }
+            if (result) {
+                req.session.user = foundUser;
+                res.redirect('/users/profile');
+            }
+            else {
+                res.redirect('/users/login');
+            }
+        })
     });
 });
 
 // User Profile after login
-router.get('/:id', (req, res)=>{
-    const userId = req.params.id;
-    User.findById(userId).populate('entries').exec((err, foundUser)=>{
+router.get('/profile', (req, res)=>{
+    if(!req.session.user) {
+        res.redirect('/users/login');
+    }
+
+    User.findById(req.session.user._id).populate('entries').exec((err, foundUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
             res.send('This page seems to be broken..');
         }
+
         res.render('users/profileUser', {
             user: foundUser,
         });
@@ -208,15 +219,15 @@ router.delete('/:userId/entries/:entryId', (req, res)=>{
 });
 
 // Log Out
-router.get('/:userId/logout', (req, res)=>{
-    const userId = req.params.userId;
-    User.findById(userId, (err, logoutUser)=>{
+router.get('/profile/logout', (req, res)=>{
+    req.session.destroy((err)=>{
         if (err) {
             console.log(`Error: ${err}`);
-            return res.send('Page seems to be broken..');
         }
+
         res.redirect('/');
-    });
+    })
 });
+
 
 module.exports = router;

@@ -13,12 +13,12 @@
     <ul>
             <% user.entries.forEach((entry)=>{ %>
                 <li>
-                    <a href="/users/<%= user._id %>/entries/<%= entry._id %>"><%= entry.title %></a>
+                    <a href="/users/profile/entries/<%= entry._id %>"><%= entry.title %></a>
                 </li>
             <% }) %>
     </ul>
-    <a href="/users/<%= user._id %>/entries/new"><button>Add a New Entry</button></a>
+    <a href="/users/profile/entries/new"><button>Add a New Entry</button></a>
     <br />
-    <a href="/users/<%= user._id %>/logout"><button>Log Out</button></a>
+    <a href="/users/profile/logout"><button>Log Out</button></a>
 </body>
 </html>
