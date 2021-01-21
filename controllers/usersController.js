@@ -217,6 +217,30 @@ router.delete('/profile/entries/:entryId', (req, res)=>{
     });
 });
 
+// Delete Account
+router.delete('/profile', (req, res)=>{
+    User.findByIdAndDelete(req.session.user._id, (err, deletedUser)=>{
+        if (err) {
+            console.log(`Error: ${err}`);
+        }
+
+        Entry.deleteMany({ user: deletedUser._id }, (err, deletedEntries)=>{
+            if (err) {
+                console.log(`Error: ${err}`);
+            }
+
+            req.session.destroy((err)=>{
+                if (err) {
+                    console.log(`Error: ${err}`);
+                }
+
+                res.redirect('/');
+            });
+        })
+    })
+});
+
+
 // Log Out
 router.get('/profile/logout', (req, res)=>{
     req.session.destroy((err)=>{
@@ -227,6 +251,5 @@ router.get('/profile/logout', (req, res)=>{
         res.redirect('/');
     })
 });
-
 
 module.exports = router;
