@@ -1,13 +1,4 @@
-// const pageTurn = new Audio('/assets/pageturn.wav');
-
-// function playSound() {
-//     pageTurn.play();
-// };
-
-// const entryBtn = document.querySelectorAll('#entry-button');
-
-// entryBtn.forEach(item => {
-//     item.addEventListener('click', event => {
-//     playSound()
-//     });
-// });
+document.getElementById("delete-btn").addEventListener('click', function() {
+    console.log('clicked');
+    confirm('Are you sure you want to delete your account?');
+})
