@@ -70,25 +70,31 @@ width: 100vw;
 }
 
 .login {
-    background-color: rgb(151, 98, 140);
-}
-
-
-.login-view {
-    background-color: thistle;
-}
-
-#app-container {
+    /* background: url("https://cdn.dribbble.com/users/199667/screenshots/14970436/media/7fb9b09f9e528fd7e46752573c54e06b.png?compress=1&resize=1000x750"); */
+    /* background: url("https://cdn.dribbble.com/users/850056/screenshots/2764107/cherrydribble800x600.png"); */
+    background: linear-gradient(rgb(121, 70, 121), rgb(113, 113, 133));
     position: relative;
-    padding-top: 200px;
-    min-height: 100vh;
-    
+    width: 100vw; 
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* margin-top: 80px; */
 }
 
-div {
-    display: block;
-}
+
+
 
 #user-login {
-    background-image: url("https://cdn.dribbble.com/users/417348/screenshots/2752682/beta-fish.jpg?compress=1&resize=800x600");
+    /* background-image: url("https://cdn.dribbble.com/users/417348/screenshots/2752682/attachments/559718/beta-fish-full.jpg?compress=1&resize=800x600"); */
+    background: url("https://cdn.dribbble.com/users/199667/screenshots/14970436/media/7fb9b09f9e528fd7e46752573c54e06b.png?compress=1&resize=1000x750");
+    filter: opacity(.80);
+    filter: brightness(80%);
+}
+
+#login-form {
+    position: relative;
+    padding-top: 50px;
+    
 }
