@@ -101,15 +101,15 @@ router.get('/profile', (req, res)=>{
 });
 
 // Add New Entry Page
-router.get('/:id/entries/new', (req, res)=>{
+router.get('/profile/entries/new', (req, res)=>{
     res.render('entries/newEntry', {
         userId: req.params.id,
     });
 });
 
 // Post New Entry
-router.post('/:userId/entries', (req, res)=>{
-    User.findById(req.params.userId, (err, foundUser)=>{
+router.post('/profile/entries', (req, res)=>{
+    User.findById(req.session.user._id, (err, foundUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
             return res.send('Page seems to be broken..');
@@ -130,14 +130,14 @@ router.post('/:userId/entries', (req, res)=>{
                 if (err) {
                     console.log(err);
                 }
-                res.redirect(`/users/${savedUser._id}`);
+                res.redirect('/users/profile');
             });
         });
     });
 });
 
 // View One Entry
-router.get('/:userId/entries/:id', (req, res)=>{
+router.get('/profile/entries/:id', (req, res)=>{
     const entryId = req.params.id;
     Entry.findById(entryId, (err, foundEntry)=>{
         if (err) {
@@ -145,7 +145,7 @@ router.get('/:userId/entries/:id', (req, res)=>{
             return res.send('Page seems to be broken..');
         }
         
-        User.findById(req.params.userId, (err, foundUser)=>{
+        User.findById(req.session.user._id, (err, foundUser)=>{
             if (err) {
                 console.log(err);
             }
