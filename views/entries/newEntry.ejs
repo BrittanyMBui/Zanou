@@ -8,7 +8,7 @@
 <body>
     <%- include ('../partials/header') %>
     <h1>Create a New Journal Entry</h1>
-    <form action="/users/<%= userId %>/entries" method="POST">
+    <form action="/users/profile/entries" method="POST">
         <label for="title">Entry Date/Title</label>
         <input type="text" name="title" value="<%= new Date %>">
         <br />
@@ -18,6 +18,6 @@
         <input type="submit" value="Submit Journal Entry">
     </form>
     <br />
-    <a href="/users/<%= userId %>"><button>Cancel</button></a>
+    <a href="/users/profile"><button>Cancel</button></a>
 </body>
 </html>

@@ -1,56 +1,99 @@
 const express = require('express');
 const { User, Entry } = require('../models');
+const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
 
-// Create an Account
+// Render Create an Account Page
 router.get('/new', (req, res)=>{
     res.render('users/newUser');
 });
 
-// Log into an account
+// Render Log Into Account Page
 router.get('/login', (req, res)=>{
     res.render('users/loginUser');
 });
 
-// Post new Account
-router.post('/', (req, res)=>{
-    User.create(req.body, (err, newUser)=>{
+// Create New Account
+router.post('/',
+body('email').isEmail(),
+body('confirmPassword').custom((value, { req })=>{
+    if (value !== req.body.password) {
+        throw new Error('Passwords do not match');
+    }
+    return true;
+}),
+(req, res)=>{
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        // return res.status(400).json({ errors: errors.array() });
+        return res.send(errors)
+    }
+
+    bcrypt.genSalt(10, (err, salt)=>{
         if (err) {
-            console.log(`Error: ${err}`);
-            res.send('This page seems to be broken..');
+            return console.log(err)
         }
-        res.redirect('/users/login');
-    });
+
+        bcrypt.hash(req.body.password, salt, (err, hashedPassword)=>{
+            const newUser = {
+                username: req.body.username,
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPassword,
+            }
+
+            User.create(newUser, (err, createdUser)=>{
+                if (err) {
+                    console.log(`Error: ${err}`);
+                    res.send('This page seems to be broken..');
+                }
+
+                res.redirect('/users/login');
+            })
+        })
+    })
 });
 
 // Log in with email and password
 router.post('/login', (req, res)=>{
-    const userEmail = req.body.email;
-    User.findOne({email: userEmail}, (err, foundUser)=>{
+
+    User.findOne({ email: req.body.email }, (err, foundUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
-            return res.send('Page seems to be broken..');
         }
         if (!foundUser) {
-            res.render('users/loginUser');
-        }
-        if(foundUser.password === req.body.password) {
-            return res.redirect(`/users/${foundUser._id}`);
+            return res.redirect('/users/login');
         }
 
-        res.render('users/loginUser');
+        bcrypt.compare(req.body.password, foundUser.password, (err, result)=>{
+            if (err) {
+                console.log(`Error: ${err}`);
+            }
+            if (result) {
+                req.session.user = foundUser;
+                res.redirect('/users/profile');
+            }
+            else {
+                res.redirect('/users/login');
+            }
+        })
     });
 });
 
 // User Profile after login
-router.get('/:id', (req, res)=>{
-    const userId = req.params.id;
-    User.findById(userId).populate('entries').exec((err, foundUser)=>{
+router.get('/profile', (req, res)=>{
+    if(!req.session.user) {
+        res.redirect('/users/login');
+    }
+
+    User.findById(req.session.user._id).populate('entries').exec((err, foundUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
             res.send('This page seems to be broken..');
         }
+
         res.render('users/profileUser', {
             user: foundUser,
         });
@@ -58,15 +101,15 @@ router.get('/:id', (req, res)=>{
 });
 
 // Add New Entry Page
-router.get('/:id/entries/new', (req, res)=>{
+router.get('/profile/entries/new', (req, res)=>{
     res.render('entries/newEntry', {
         userId: req.params.id,
     });
 });
 
 // Post New Entry
-router.post('/:userId/entries', (req, res)=>{
-    User.findById(req.params.userId, (err, foundUser)=>{
+router.post('/profile/entries', (req, res)=>{
+    User.findById(req.session.user._id, (err, foundUser)=>{
         if (err) {
             console.log(`Error: ${err}`);
             return res.send('Page seems to be broken..');
@@ -87,14 +130,14 @@ router.post('/:userId/entries', (req, res)=>{
                 if (err) {
                     console.log(err);
                 }
-                res.redirect(`/users/${savedUser._id}`);
+                res.redirect('/users/profile');
             });
         });
     });
 });
 
 // View One Entry
-router.get('/:userId/entries/:id', (req, res)=>{
+router.get('/profile/entries/:id', (req, res)=>{
     const entryId = req.params.id;
     Entry.findById(entryId, (err, foundEntry)=>{
         if (err) {
@@ -102,7 +145,7 @@ router.get('/:userId/entries/:id', (req, res)=>{
             return res.send('Page seems to be broken..');
         }
         
-        User.findById(req.params.userId, (err, foundUser)=>{
+        User.findById(req.session.user._id, (err, foundUser)=>{
             if (err) {
                 console.log(err);
             }
@@ -176,15 +219,15 @@ router.delete('/:userId/entries/:entryId', (req, res)=>{
 });
 
 // Log Out
-router.get('/:userId/logout', (req, res)=>{
-    const userId = req.params.userId;
-    User.findById(userId, (err, logoutUser)=>{
+router.get('/profile/logout', (req, res)=>{
+    req.session.destroy((err)=>{
         if (err) {
             console.log(`Error: ${err}`);
-            return res.send('Page seems to be broken..');
         }
+
         res.redirect('/');
-    });
+    })
 });
+
 
 module.exports = router;
