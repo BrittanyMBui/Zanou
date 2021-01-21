@@ -8,11 +8,11 @@
 <body>
     <%- include ('../partials/header') %>
     <h4>Edit Entry for <%= entry.title %></h4>
-    <form action="/users/<%= entry.user._id %>/entries/<%= entry._id %>?_method=PUT" method="post">
+    <form action="/users/profile/entries/<%= entry._id %>?_method=PUT" method="post">
         <textarea name="body"><%= entry.body %></textarea>
         <br />
         <input type="submit" value="Update Entry">
     </form>
-    <a href="/users/<%= entry.user._id %>"><button>Cancel</button></a>
+    <a href="/users/profile"><button>Cancel</button></a>
 </body>
 </html>

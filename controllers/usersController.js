@@ -177,33 +177,33 @@ router.get('/:userId/entries/:entryId/edit', (req, res)=>{
 });
 
 // Post Edit
-router.put('/:userId/entries/:entryId', (req, res)=>{
+router.put('/profile/entries/:entryId', (req, res)=>{
     const entryId = req.params.entryId;
     Entry.findByIdAndUpdate(entryId, req.body, (err, updatedEntry)=>{
         if (err) {
             console.log(`Error: ${err}`);
             return res.send('Page seems to be broken..');
         }
-        const userId = req.params.userId;
-        User.findById(userId, (err, foundUser)=>{
+
+        User.findById(req.session.user._id, (err, foundUser)=>{
             if (err) {
                 console.log(`Error: ${err}`);
             }
 
-            res.redirect(`/users/${userId}`);
+            res.redirect('/users/profile');
         });
     });
 });
 
 // Delete an Entry
-router.delete('/:userId/entries/:entryId', (req, res)=>{
+router.delete('/profile/entries/:entryId', (req, res)=>{
     const entryId = req.params.entryId;
     Entry.findByIdAndDelete(entryId, (err, deletedEntry)=>{
         if (err) {
             console.log(`Error: ${err}`);
             return res.send('Page seems to be broken..');
         }
-        const userId = req.params.userId;
+
         User.findByIdAndUpdate(
             deletedEntry.user,
             { $pull: {entries: deletedEntry._id} },
@@ -212,7 +212,7 @@ router.delete('/:userId/entries/:entryId', (req, res)=>{
                 if (err) {
                     console.log(err);
                 }
-                res.redirect(`/users/${userId}`);
+                res.redirect('/users/profile');
             }
         )
     });
