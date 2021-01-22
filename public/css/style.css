@@ -436,3 +436,17 @@ width: 100vw;
     box-shadow: rgba(0, 0, 0, 0.6);
     color:  rgb(25, 21, 31);
 }
+
+#show-entry-text {
+    font-family: 'Vollkorn', serif;
+    background-color: violet;
+    background-image: linear-gradient( #bcaedf, #a36375);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 30px;
+}
