@@ -15,7 +15,7 @@
     <br />
     <section class="delete">
         <form action="/users/profile/entries/<%= entry._id %>?_method=DELETE" method="post">
-            <input type="submit" value="Delete Entry">
+            <input type="submit" value="Delete Entry" onclick="return confirm('Are you sure you want to delete this entry?');">
         </form>
     </section>
     <br />
