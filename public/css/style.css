@@ -141,26 +141,36 @@ width: 100vw;
 }
 
 .user-profile {
-    background:rgb(189, 162, 189);
+    background:rgb(34, 19, 34);
     background-position: center;
     background-size: 600px 650px;
 }
 
 .profile-header {
     position: relative;
-    padding-top: 200px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding-top: 40px;
+}
 
+.profile-header h1 {
+    font-family: 'Vollkorn', serif;
+}
+
+.user-entries h2 {
+    font-family: 'Vollkorn', serif;
+    font-size: 25px;
 }
 
 .user-entries {
     position: relative;
+    /* padding-bottom: 80px; */
     padding-top: 20px;
+    padding-right: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 /* Reference used: https://fossheim.io/writing/posts/css-text-gradient/ */
@@ -191,7 +201,56 @@ width: 100vw;
     padding-left: 25px;
 }
 
+#delete-button {
+    height: 40px;
+    width: 200px;
+    background-color: rgb(25, 21, 31);
+    border-style: groove;
+}
+
 #delete-btn {
-    background-color: none;
-    
+    padding-left: 950px;
+}
+
+#sakura-sticker img {
+    height: 300px;
+    padding-bottom: 80px;
+    filter: brightness(80%);
+    position: relative;
+    -webkit-background-size: 300px;
+    -moz-background-size: 300px;
+    -o-background-size: 300px;
+    background-size: 300px;
+}
+
+#entry-edit {
+    padding-left: 30px;
+}
+
+.entry-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.entry-list ol {
+    list-style-type: lower-roman;
+    color:rgb(159, 140, 173);
+    list-style-position: inside;
+}
+
+#entry-li  {
+    color:rgb(219, 192, 238);
+    background-color: violet;
+    background-image: linear-gradient(45deg, #8a7bad, #a36375);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-family: 'Vollkorn', serif;
+    font-size: 22px;
 }
