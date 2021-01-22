@@ -298,3 +298,7 @@ width: 100vw;
     font-family: 'Vollkorn', serif;
     font-size: 22px;
 }
+
+.new-entry {
+    background-color: rgb(159, 155, 180);
+}

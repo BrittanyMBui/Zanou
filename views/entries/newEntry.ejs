@@ -6,9 +6,11 @@
     <script src="https://cdn.tiny.cloud/1/2kv5vifv8p9x56kiyr5n8n0kj30tz7apd3482ldsbh0vqsyj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Create a New Entry</title>
 </head>
-<body>
+<body class="new-entry">
+
     <%- include ('../partials/header') %>
-    <h1>Create a New Journal Entry</h1>
+    
+    <h1 >Create a New Journal Entry</h1>
     <form action="/users/profile/entries" method="POST">
         <label for="title">Entry Date/Title</label>
         <input type="text" name="title" value="<%= new Date %>">
