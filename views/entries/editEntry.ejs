@@ -6,15 +6,15 @@
     <script src="https://cdn.tiny.cloud/1/2kv5vifv8p9x56kiyr5n8n0kj30tz7apd3482ldsbh0vqsyj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Edit Journal Entry</title>
 </head>
-<body>
+<body class="edit-entry">
     <%- include ('../partials/header') %>
-    <h4>Edit Entry for <%= entry.title %></h4>
+    <h4 class="mt-5 mb-5" id="edit-entry-header">Edit Entry for <%= entry.title %></h4>
     <form action="/users/profile/entries/<%= entry._id %>?_method=PUT" method="post">
         <textarea name="body"><%= entry.body %></textarea>
         <br />
-        <input type="submit" value="Update Entry">
+        <input class="mt-5" id="update-entry" type="submit" value="Update Entry">
     </form>
-    <a href="/users/profile"><button>Cancel</button></a>
+    <a href="/users/profile"><button class="mt-5" id="cancel-btn">Cancel</button></a>
 </body>
 
 <!-- RICH TEXT EDITOR CONFIG -->
