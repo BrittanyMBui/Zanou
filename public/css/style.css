@@ -84,21 +84,47 @@ width: 100vw;
     /* margin-top: 80px; */
 }
 
+#login-heading {
+    color:rgb(83, 79, 105);
+    background-color: violet;
+    background-image: linear-gradient( #8a7bad, #a36375);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-family: 'Yatra One', cursive;
+}
 
+#user-login h1 {
+    font-family: 'Yatra One', cursive;
+    padding-bottom: 10px;
+}
 
 
 #user-login {
     /* background-image: url("https://cdn.dribbble.com/users/417348/screenshots/2752682/attachments/559718/beta-fish-full.jpg?compress=1&resize=800x600"); */
-    background: url("https://cdn.dribbble.com/users/199667/screenshots/14970436/media/7fb9b09f9e528fd7e46752573c54e06b.png?compress=1&resize=1000x750");
-    
+    background: url("https://cdn.dribbble.com/users/3286807/screenshots/6253950/13_4x.jpg?compress=1&resize=1000x750"); 
     /* opacity: 0.90; */
-    filter: brightness(90%);
 }
 
 #login-form {
     position: relative;
     padding-top: 50px;
-    
+}
+
+#loginbtn {
+    font-family: 'Yatra One', cursive;
+    background: linear-gradient(rgb(184, 145, 184), rgb(121, 98, 139));
+    border: rgb(11, 10, 14);
+    box-shadow: rgba(0, 0, 0, 0.6);
+}
+
+#loginbtn:hover {
+    color: rgb(22, 6, 14);
+    text-shadow: rgb(159, 155, 180);
 }
 
 .create-acct {
@@ -119,17 +145,23 @@ width: 100vw;
 
 }
 
+::-webkit-input-placeholder {
+    font-family: 'Yatra One', cursive;
+}
+
 #user-create {
     /* background: url("https://cdn.dribbble.com/users/199667/screenshots/14970436/media/7fb9b09f9e528fd7e46752573c54e06b.png?compress=1&resize=1000x750"); */
     background: url("https://cdn.dribbble.com/users/3286807/screenshots/6253950/13_4x.jpg?compress=1&resize=1000x750"); 
     /* background: url("https://cdn.dribbble.com/users/850056/screenshots/2764107/cherrydribble800x600.png?compress=1&resize=800x600");  */
-    
 }
 
 #description  h1 {
-    
-    font-size: 20px;
-    color :rgb(116, 112, 136);
+    font-family: 'Yatra One', cursive;
+    font-size: 25px;
+    color :rgb(48, 44, 73);
+    background-color:  rgb(219, 192, 238);
+    color: rgb(25, 21, 31);
+    padding-bottom: 15px;
 }
 
 
@@ -138,6 +170,11 @@ width: 100vw;
     border: rgb(14, 12, 24);
     color: rgb(25, 21, 31);
     opacity: 1;
+    font-family: 'Yatra One', cursive;
+}
+
+#create-btn:hover {
+    color: rgb(54, 67, 105);
 }
 
 .user-profile {
