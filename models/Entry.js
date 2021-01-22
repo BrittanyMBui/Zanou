@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const entrySchema = mongoose.Schema({
     title: {
-        type: Date,
+        type: 'String',
+        default: Date,
     },
     body: {
         type: String,
