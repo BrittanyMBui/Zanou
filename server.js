@@ -17,6 +17,7 @@ app.use((req, res, next)=>{
 });
 // BODY-PARSER
 app.use(bodyParser.urlencoded({ extended: true }));
+// SESSION
 app.use(session({
   secret: 'milo the barking dog',
   resave: false,
@@ -31,15 +32,8 @@ app.use(methodOverride('_method'));
 app.use('/users', usersController);
 // STATIC ASSETS
 app.use(express.static(`${__dirname}/public`));
-// REMOVES 404 ERROR FAVICON
-function ignoreFavicon(req, res, next) {
-    if (req.originalUrl.includes('favicon.ico')) {
-      res.status(204).end()
-    }
-    next();
-  };
-app.use(ignoreFavicon);
-// SESSION
+
+
 
 
 // HOMEPAGE
