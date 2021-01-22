@@ -101,6 +101,12 @@ width: 100vw;
 #user-login h1 {
     font-family: 'Yatra One', cursive;
     padding-bottom: 10px;
+    font-family: 'Yatra One', cursive;
+    font-size: 25px;
+    color :rgb(48, 44, 73);
+    background-color:  rgb(219, 192, 238);
+    color: rgb(25, 21, 31);
+    padding-bottom: 15px;
 }
 
 
@@ -117,13 +123,14 @@ width: 100vw;
 
 #loginbtn {
     font-family: 'Yatra One', cursive;
-    background: linear-gradient(rgb(184, 145, 184), rgb(121, 98, 139));
+    background: linear-gradient(rgb(212, 181, 212), rgb(169, 139, 192));
     border: rgb(11, 10, 14);
     box-shadow: rgba(0, 0, 0, 0.6);
+    color:  rgb(25, 21, 31);
 }
 
 #loginbtn:hover {
-    color: rgb(22, 6, 14);
+    color: rgb(42, 37, 110);
     text-shadow: rgb(159, 155, 180);
 }
 
@@ -166,11 +173,11 @@ width: 100vw;
 
 
 #create-btn  {
-    background-color: rgb(219, 192, 238);
-    border: rgb(14, 12, 24);
-    color: rgb(25, 21, 31);
-    opacity: 1;
     font-family: 'Yatra One', cursive;
+    background: linear-gradient(rgb(212, 181, 212), rgb(169, 139, 192));
+    border: rgb(11, 10, 14);
+    box-shadow: rgba(0, 0, 0, 0.6);
+    color:  rgb(25, 21, 31);
 }
 
 #create-btn:hover {
