@@ -141,9 +141,7 @@ width: 100vw;
 }
 
 .user-profile {
-    background: url("https://cdn.dribbble.com/users/6063/screenshots/6864688/j.jpg?compress=1&resize=800x600");
-    background-repeat: no-repeat;
-    background-color: thistle;
+    background:rgb(189, 162, 189);
     background-position: center;
     background-size: 600px 650px;
 }
