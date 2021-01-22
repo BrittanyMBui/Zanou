@@ -8,7 +8,7 @@
 <body class="show-entry">
     <%- include ('../partials/header') %>
     <h2 class="mt-5" id="show-entry-content"><%= entry.title %></h2>
-    <p><%- entry.body %></p>
+    <h2 class="mt-5" id="show-entry-text"><%- entry.body %></h2>
     <section class="edit">
         <a href="/users/profile/entries/<%= entry._id %>/edit"><button class="mt-4" id="edit-btn">Edit Entry</button></a>
     </section>
