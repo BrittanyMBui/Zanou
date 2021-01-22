@@ -9,19 +9,23 @@
 <body class="new-entry">
 
     <%- include ('../partials/header') %>
-    
-    <h1 >Create a New Journal Entry</h1>
+
+  
+
+    <h1 class="mt-5" id="new-entry-header">Hello, glad to have you back.</h1>
     <form action="/users/profile/entries" method="POST">
-        <label for="title">Entry Date/Title</label>
+        <label class="mt-4" id="entry-label" for="title">Would you like to name your entry?</label>
         <input type="text" name="title" value="<%= new Date %>">
         <br />
-        <label for="body">Entry Content</label>
-        <textarea name="body"></textarea>
+        <label class="mt-5 mb-4" id="entry-content" for="body"> <i class="bi bi-vector-pen"></i> Let's get started</label>
+        <div class="h-100" id="editor-div" class="container">
+            <textarea id="editor" name="body"></textarea>
+        </div>
         <br />
-        <input type="submit" value="Submit Journal Entry">
+        <input id="submit-btn" type="submit" value="Submit Journal Entry">
     </form>
     <br />
-    <a href="/users/profile"><button>Cancel</button></a>
+    <a href="/users/profile"><button id="cancel-btn">Cancel</button></a>
 </body>
 
 <!-- RICH TEXT EDITOR CONFIG -->
