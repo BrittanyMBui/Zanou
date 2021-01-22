@@ -365,3 +365,42 @@ width: 100vw;
     box-shadow: rgba(0, 0, 0, 0.6);
     color:  rgb(25, 21, 31);
 }
+
+.show-entry {
+    background-color: rgb(34, 19, 34);
+}
+
+#show-entry-content {
+    font-family: 'Vollkorn', serif;
+    background-color: violet;
+    background-image: linear-gradient( #bcaedf, #a36375);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+}
+
+#edit-btn {
+    background: linear-gradient(rgb(212, 181, 212), rgb(169, 139, 192));
+    border: rgb(11, 10, 14);
+    box-shadow: rgba(0, 0, 0, 0.6);
+    color:  rgb(25, 21, 31);
+}
+
+#delete-entry {
+    background: linear-gradient(rgb(212, 181, 212), rgb(169, 139, 192));
+    border: rgb(11, 10, 14);
+    box-shadow: rgba(0, 0, 0, 0.6);
+    color:  rgb(25, 21, 31);
+}
+
+#back-btn {
+    background: linear-gradient(rgb(212, 181, 212), rgb(169, 139, 192));
+    border: rgb(11, 10, 14);
+    box-shadow: rgba(0, 0, 0, 0.6);
+    color:  rgb(25, 21, 31);
+}
