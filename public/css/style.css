@@ -141,11 +141,8 @@ width: 100vw;
 }
 
 .user-profile {
-    background: url("https://i.pinimg.com/564x/1e/3e/a5/1e3ea5de6e3876053d3358eed2711fbd.jpg");
-    background: url("https://i.pinimg.com/564x/46/f0/55/46f0558efe7d5c3ea67f538e8bfe79a5.jpg");
+    background: url("https://cdn.dribbble.com/users/6063/screenshots/6864688/j.jpg?compress=1&resize=800x600");
     background-repeat: no-repeat;
-    /* background-position: center; */
-    /* background-position: 50% 50%; */
     background-color: thistle;
     background-position: center;
     background-size: 600px 650px;
@@ -196,3 +193,7 @@ width: 100vw;
     padding-left: 25px;
 }
 
+#delete-btn {
+    background-color: none;
+    
+}
