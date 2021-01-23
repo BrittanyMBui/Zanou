@@ -49,7 +49,8 @@ body('confirmPassword').custom((value, { req })=>{
                     res.send('This page seems to be broken..');
                 }
 
-                res.redirect('/users/login');
+                req.session.user = createdUser;
+                res.redirect('/users/profile');
             })
         })
     })
