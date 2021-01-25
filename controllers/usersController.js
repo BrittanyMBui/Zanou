@@ -27,8 +27,16 @@ body('confirmPassword').custom((value, { req })=>{
 (req, res)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.log(errors)
         return res.send(errors)
     }
+
+    User.findOne( {email: req.body.email}, (err, foundEmail)=>{
+        if (err) {
+            console.log(err)
+        }
+        res.redirect('/users/new');
+    });
 
     bcrypt.genSalt(10, (err, salt)=>{
         if (err) {
