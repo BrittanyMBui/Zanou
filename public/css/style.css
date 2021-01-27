@@ -252,9 +252,13 @@ width: 100vw;
     border-style: groove;
 }
 
+
 #delete-btn {
-    padding-left: 950px;
+    margin-right: 0px;
+    display: flex;
+    justify-content: flex-end;
 }
+
 
 #sakura-sticker img {
     height: 300px;
