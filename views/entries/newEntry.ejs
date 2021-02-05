@@ -47,11 +47,14 @@
     tinycomments_mode: 'embedded',
     tinycomments_author: 'Author name',
     height : "480",
-    width : "640",
+    width : "800",
     branding: false,
-    // toolbar: 'forecolor backcolor',
-    // toolbar: 'undo redo | styleselect | bold italic | link image',
-    content_css: 'path/myfile.css?' + new Date().getTime(),
+    toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+    skin: "oxide-dark",
+    content_css: "dark",
+    content_css : "https://cdn.mywebsites.com/css/custom_tinymce_rules.css",
+    content_css: (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : ""),
+    // content_css: 'path/myfile.css?' + new Date().getTime(),
     });
 </script>
 
