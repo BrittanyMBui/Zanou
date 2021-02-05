@@ -19,12 +19,14 @@
     <%- include ('../partials/header') %>
 
 
-    <h1 class="mt-5" id="new-entry-header">Hello, glad to have you back.</h1>
     <form action="/users/profile/entries" method="POST">
         <label class="mt-4" id="entry-label" for="title">Would you like to name your entry?</label>
-        <input type="text" name="title" value="<%= new Date %>">
+        <div id="entry-name">
+            <input type="text" id="name-input" name="title" value="<%= new Date %>">
+        </div>
+        <!-- <input type="text" name="title" value="<%= new Date %>"> -->
         <br />
-        <label class="mt-5 mb-4" id="entry-content" for="body"> <i class="bi bi-vector-pen"></i> Let's get started:</label>
+        <!-- <label class="mt-5 mb-4" id="entry-content" for="body"> <i class="bi bi-vector-pen"></i> Let's get started:</label> -->
         <div class="h-100" id="editor-div" class="container">
             <textarea id="editor" name="body"></textarea>
         </div>
@@ -46,7 +48,7 @@
     toolbar_mode: 'floating',
     tinycomments_mode: 'embedded',
     tinycomments_author: 'Author name',
-    height : "480",
+    height : "600",
     width : "800",
     branding: false,
     toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
