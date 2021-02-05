@@ -304,7 +304,7 @@ width: 100vw;
 }
 
 .new-entry {
-    background-color: rgb(34, 19, 34);
+    background-color: rgb(59, 31, 59);
 }
 
 #new-entry-header {
@@ -348,9 +348,6 @@ width: 100vw;
     font-size: 25px;
 }
 
-#editor-div {
-    background-color: rgb(219, 192, 238);
-}
 
 #editor {
     color:rgb(169, 139, 192);
@@ -454,3 +451,54 @@ width: 100vw;
     -moz-text-fill-color: transparent;
     font-size: 30px;
 }
+
+
+.tox-tinymce {
+    font-family: 'Vollkorn', serif !important;
+    font-size: 25px !important;
+    
+}
+
+
+.tox-menubar {
+    height: 50px !important;
+    padding-top: 2px !important;
+    border: none !important;
+}
+
+.tox .tox-mbtn {
+    font-size: 18px !important;
+    font-family: 'Vollkorn', serif !important;
+    border: none !important;
+}
+
+.tox .tox-toolbar__primary {
+    height: 50px !important;
+    padding-bottom: 8px !important;
+}
+
+.tox .tox-statusbar__path {
+    display: none !important;
+}
+
+.tox-statusbar__branding {
+    display: none !important;
+}
+
+.tox .tox-statusbar__resize-handle {
+    display: none !important;
+}
+
+body.mceContentBody { 
+    background: #fff !important; 
+    color:#000  !important;
+}
+
+
+#editor-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

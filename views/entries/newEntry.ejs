@@ -18,13 +18,6 @@
 
     <%- include ('../partials/header') %>
 
-    <!-- Create the editor container -->
-<div id="editor">
-    <p>Hello World!</p>
-    <p>Some initial <strong>bold</strong> text</p>
-    <p><br></p>
-</div>
-
 
     <h1 class="mt-5" id="new-entry-header">Hello, glad to have you back.</h1>
     <form action="/users/profile/entries" method="POST">
@@ -53,24 +46,22 @@
     toolbar_mode: 'floating',
     tinycomments_mode: 'embedded',
     tinycomments_author: 'Author name',
+    height : "480",
+    width : "800",
+    branding: false,
+    toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+    skin: "oxide-dark",
+    content_css: "dark",
+    content_css : "https://cdn.mywebsites.com/css/custom_tinymce_rules.css",
+    content_css: (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : ""),
+    // content_css: 'path/myfile.css?' + new Date().getTime(),
     });
 </script>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 
-
-<!-- Initialize Quill editor -->
-<script>
-    var quill = new Quill('#editor', {
-    theme: 'snow'
-    });
-</script>
-
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 
 </html>
