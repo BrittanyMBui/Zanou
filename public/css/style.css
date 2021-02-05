@@ -304,7 +304,9 @@ width: 100vw;
 }
 
 .new-entry {
-    background-color: rgb(59, 31, 59);
+    background-color: rgb(29, 23, 32);
+    /* background: url('https://cdn.wallpapersafari.com/0/82/HRZ3J6.jpg'); */
+    background-color: rgb(49, 42, 63);
 }
 
 #new-entry-header {
@@ -332,6 +334,9 @@ width: 100vw;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #entry-content {
@@ -499,6 +504,23 @@ body.mceContentBody {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 80px;
 }
 
+#entry-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    color:rgb(126, 105, 126);
+    height: 55px;
+}
 
+#name-input {
+    font-family: 'Vollkorn', serif;
+    background-color: rgb(65, 55, 78);
+    border: 2px solid rgb(0, 0, 0);
+    color:rgb(136, 102, 136);
+    height: 50px;
+    width: 300px;
+}
